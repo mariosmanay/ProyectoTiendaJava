@@ -6,8 +6,8 @@ public class ApplicacionTienda {
     public static void main(String[] args) {
         Tienda miTienda = new Tienda("Mi Tienda", 100);
 
-        // Crear productos
-        ProductoEnvasado aceite = new ProductoEnvasado("AB123", "Aceite", 50, 20, 15, true, "Plástico", true);
+        // Creacion de todos los productos
+        ProductoEnvasado aceite = new ProductoEnvasado("AM437", "Aceite", 50, 20, 15, true, "Plástico", true);
         Bebida vino = new Bebida("AC456", "Vino", 30, 15, 10, true, true, 12, true);
         ProductoLimpieza detergente = new ProductoLimpieza("AZ789", "Detergente", 40, 10, 5, true, "COCINA");
 
@@ -15,7 +15,7 @@ public class ApplicacionTienda {
         miTienda.agregarProducto(vino);
         miTienda.agregarProducto(detergente);
 
-        // Realizar operaciones
+        // Realizacion de algunas operaciones
         miTienda.comprarProducto(aceite, 10);
         miTienda.venderProductos(Map.of(vino, 2, detergente, 5));
 

@@ -4,18 +4,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Tienda {
-    private String nombre;
-    private int maxProductosEnStock;
+    private final String nombre;
+    private final int maxProductosEnStock;
     private double saldoCaja;
-
-
-    public void setStockProductos(Map<String, Producto> stockProductos) {
-        this.stockProductos = stockProductos;
-    }
 
     private Map<String, Producto> stockProductos;
 
-    // Constructor
+    // Constructores
     public Tienda(String nombre, int maxProductosEnStock) {
         this.nombre = nombre;
         this.maxProductosEnStock = maxProductosEnStock;
@@ -23,33 +18,24 @@ public class Tienda {
         this.stockProductos = new HashMap<>();
     }
 
-    // Métodos para gestionar el stock y las ventas
+    // Métodos para controlar el stock y las ventas
     public void agregarProducto(Producto producto) {
         if (stockProductos.size() < maxProductosEnStock) {
             stockProductos.put(producto.getIdentificador(), producto);
         } else {
-            System.out.println("No se puede agregar más productos. Stock lleno.");
+            System.out.println("No se puede agregar más productos ya que el stock esta lleno.");
         }
     }
 
     public Map<String, Producto> getStockProductos() {
+
         return stockProductos;
     }
     public double getSaldoCaja() {
+
         return saldoCaja;
     }
 
-    public void venderProducto(String identificador) {
-        Producto producto = stockProductos.get(identificador);
-        if (producto != null && producto.isDisponibleParaVenta()) {
-            double precioVenta = producto.getPrecioVenta();
-            saldoCaja += precioVenta;
-            producto.setCantidadEnStock(producto.getCantidadEnStock() - 1);
-            System.out.println("Producto vendido: " + producto.getDescripcion());
-        } else {
-            System.out.println("Producto no disponible para la venta.");
-        }
-    }
 
     public void comprarProducto(Producto producto, int cantidad) {
         double costoTotal = producto.getCostoPorUnidad() * cantidad;

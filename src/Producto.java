@@ -6,7 +6,7 @@ public abstract class Producto {
     private double costoPorUnidad;
     private boolean disponibleParaVenta;
 
-    // Constructor
+    // Constructores
     public Producto(String identificador, String descripcion, int cantidadEnStock, double precioVenta, double costoPorUnidad, boolean disponibleParaVenta) {
         this.identificador = identificador;
         this.descripcion = descripcion;
@@ -16,7 +16,7 @@ public abstract class Producto {
         this.disponibleParaVenta = disponibleParaVenta;
     }
 
-    // Métodos getters y setters para todas las propiedades
+    // Métodos getters y setters para las propiedades
 
     public String getIdentificador() {
         return identificador;
@@ -66,7 +66,8 @@ public abstract class Producto {
         this.disponibleParaVenta = disponibleParaVenta;
     }
 
-    // Métodos abstractos que deben ser implementados por las clases hijas
+    // Métodos que deben ser implementados por las clases hijas
+
     public abstract String getTipoEnvase();
     public abstract boolean esImportado();
 
