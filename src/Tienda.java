@@ -66,26 +66,6 @@ public class Tienda {
         System.out.println("TOTAL VENTA: " + totalVenta);
     }
 
-    public List<String> obtenerComestiblesConMenorDescuento(double porcentajeDescuento) {
-        return stockProductos.values()
-                .stream()
-                .filter(producto -> producto instanceof ProductoComestible && !producto.esImportado())
-                .filter(producto -> producto.getPorcentajeDescuento() < porcentajeDescuento)
-                .sorted((p1, p2) -> Double.compare(p1.getPrecioVenta(), p2.getPrecioVenta()))
-                .map(producto -> producto.getDescripcion().toUpperCase())
-                .collect(Collectors.toList());
-    }
-
-    public void listarProductosConUtilidadesInferiores(double porcentajeUtilidad) {
-        stockProductos.values()
-                .stream()
-                .filter(producto -> producto.getPorcentajeGanancia() < porcentajeUtilidad)
-                .forEach(producto -> System.out.println(
-                        "Código: " + producto.getIdentificador() +
-                                ", Descripción: " + producto.getDescripcion() +
-                                ", Cantidad en stock: " + producto.getCantidadEnStock()));
-    }
-
 }
 
 

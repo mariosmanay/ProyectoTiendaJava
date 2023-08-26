@@ -7,31 +7,24 @@ public class ApplicacionTienda {
         Tienda miTienda = new Tienda("Mi Tienda", 100);
 
         // Creacion de todos los productos
-        ProductoEnvasado aceite = new ProductoEnvasado("AM437", "Aceite", 50, 20, 15, true, "Plástico", true);
-        Bebida vino = new Bebida("AC456", "Vino", 30, 15, 10, true, true, 12, true);
-        ProductoLimpieza detergente = new ProductoLimpieza("AZ789", "Detergente", 40, 10, 5, true, "COCINA");
+        ProductoEnvasado aceite = new ProductoEnvasado("AM437", "Aceite", 20, 20, 15, true, "Plástico", true);
+        Bebida cerveza = new Bebida("AC456", "Cerveza", 30, 15, 10, true, true, 12, true);
+        ProductoLimpieza esponja = new ProductoLimpieza("AZ789", "Esponja", 40, 10, 5, true, "COCINA");
 
         miTienda.agregarProducto(aceite);
-        miTienda.agregarProducto(vino);
-        miTienda.agregarProducto(detergente);
+        miTienda.agregarProducto(cerveza);
+        miTienda.agregarProducto(esponja);
 
-        // Realizacion de algunas operaciones
-        miTienda.comprarProducto(aceite, 10);
-        miTienda.venderProductos(Map.of(vino, 2, detergente, 5));
+        // Algunas operaciones
+        miTienda.comprarProducto(aceite, 5);
+        miTienda.venderProductos(Map.of(cerveza, 4, esponja, 5));
 
-        // Mostrar información de stock y saldo
+        // Información de stock y saldo
         System.out.println("Datos de stock:");
         for (Producto producto : miTienda.getStockProductos().values()) {
             System.out.println(producto.getIdentificador() + " - " + producto.getDescripcion() + ": " + producto.getCantidadEnStock());
         }
         System.out.println("Saldo en caja: " + miTienda.getSaldoCaja());
 
-        // Ejemplo de uso de obtenerComestiblesConMenorDescuento
-        List<String> comestiblesConMenorDescuento = miTienda.obtenerComestiblesConMenorDescuento(15);
-        System.out.println("Comestibles con descuento menor al 15%: " + comestiblesConMenorDescuento);
-
-        // Ejemplo de uso de listarProductosConUtilidadesInferiores
-        System.out.println("Productos con utilidades inferiores al 10%:");
-        miTienda.listarProductosConUtilidadesInferiores(10);
     }
 }

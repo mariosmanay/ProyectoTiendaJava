@@ -36,10 +36,13 @@ public class Bebida extends Producto implements ProductoConDescuento {
     }
 
     @Override
-    public double getPrecioVentaConDescuento() {
+    public double getPorcentajeDescuento() {
         return 0;
     }
 
-
+    @Override
+    public double getPrecioVentaConDescuento() {
+        return 0;
+    }
 }
 

@@ -66,7 +66,7 @@ public abstract class Producto {
         this.disponibleParaVenta = disponibleParaVenta;
     }
 
-    // Métodos que deben ser implementados por las clases hijas
+    // Métodos
 
     public abstract String getTipoEnvase();
     public abstract boolean esImportado();
@@ -74,12 +74,5 @@ public abstract class Producto {
     public void setPorcentajeDescuento(double porcentajeDescuento) {
     }
 
-    public double getPorcentajeDescuento() {
-        return 0;
-    }
-
-    public double getPorcentajeGanancia() {
-        return 0;
-    }
 }
 
